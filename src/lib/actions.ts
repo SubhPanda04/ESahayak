@@ -6,9 +6,14 @@ import { buyers, buyerHistory } from './db/schema';
 import { buyerFormSchema } from './validations';
 import { requireAuth } from './auth';
 import { and, eq, sql } from 'drizzle-orm';
+import { checkRateLimit } from './rateLimit';
 
 export async function createBuyer(formData: FormData) {
   const userId = await requireAuth();
+
+  if (!checkRateLimit(userId, 5, 60000)) {
+    return { success: false, errors: { general: 'Rate limit exceeded. Try again later.' } };
+  }
 
   const data = {
     fullName: formData.get('fullName') as string,
@@ -60,6 +65,10 @@ export async function createBuyer(formData: FormData) {
 
 export async function updateBuyer(buyerId: string, formData: FormData) {
   const userId = await requireAuth();
+
+  if (!checkRateLimit(userId, 10, 60000)) {
+    return { success: false, errors: { general: 'Rate limit exceeded. Try again later.' } };
+  }
 
   const data = {
     fullName: formData.get('fullName') as string,
