@@ -1,5 +1,5 @@
 import { db } from './db/db';
-import { buyers } from './db/schema';
+import { buyers, buyerHistory } from './db/schema';
 import { sql, and, or, ilike, eq, desc, asc } from 'drizzle-orm';
 
 export interface BuyersFilters {
@@ -14,6 +14,7 @@ export interface BuyersFilters {
 }
 
 export async function getBuyers(filters: BuyersFilters = {}, userId: string) {
+
   const {
     city,
     propertyType,
