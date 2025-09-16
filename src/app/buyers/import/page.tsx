@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Papa from 'papaparse';
 import { buyerFormSchema } from '@/lib/validations';
 
 interface ParsedRow {
   row: number;
-  data: any;
+  data: Record<string, unknown>;
   isValid: boolean;
   errors: string[];
 }
@@ -25,7 +26,7 @@ export default function ImportBuyersPage() {
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        const rows: ParsedRow[] = results.data.slice(0, 200).map((row: any, index: number) => {
+        const rows: ParsedRow[] = results.data.slice(0, 200).map((row: Record<string, unknown>, index: number) => {
           const rowNumber = index + 2; // +2 because header is row 1, data starts at 2
 
           // Parse data
@@ -81,7 +82,7 @@ export default function ImportBuyersPage() {
       } else {
         alert('Import failed');
       }
-    } catch (error) {
+    } catch {
       alert('Import error');
     } finally {
       setIsImporting(false);
@@ -95,12 +96,12 @@ export default function ImportBuyersPage() {
     <div className="max-w-6xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Import Buyers from CSV</h1>
-        <a
+        <Link
           href="/buyers"
           className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
         >
           Back to List
-        </a>
+        </Link>
       </div>
 
       <div className="mb-6">

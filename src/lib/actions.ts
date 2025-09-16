@@ -119,10 +119,10 @@ export async function updateBuyer(buyerId: string, formData: FormData) {
     .where(and(eq(buyers.id, buyerId), eq(buyers.ownerId, userId)));
 
   // Create history entry
-  const changes: Record<string, { old: any; new: any }> = {};
+  const changes: Record<string, { old: unknown; new: unknown }> = {};
   Object.keys(result.data).forEach(key => {
-    if (key !== 'updatedAt' && (oldData as any)[key] !== (result.data as any)[key]) {
-      changes[key] = { old: (oldData as any)[key], new: (result.data as any)[key] };
+    if (key !== 'updatedAt' && (oldData as Record<string, unknown>)[key] !== (result.data as Record<string, unknown>)[key]) {
+      changes[key] = { old: (oldData as Record<string, unknown>)[key], new: (result.data as Record<string, unknown>)[key] };
     }
   });
 

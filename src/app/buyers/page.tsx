@@ -81,7 +81,7 @@ export default async function BuyersPage({ searchParams }: PageProps) {
               Import
             </Link>
             <a
-              href={`/api/buyers/export?${new URLSearchParams(resolvedSearchParams as any).toString()}`}
+              href={`/api/buyers/export?${new URLSearchParams(resolvedSearchParams as Record<string, string>).toString()}`}
               className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
             >
               <Download className="w-4 h-4 mr-2" />

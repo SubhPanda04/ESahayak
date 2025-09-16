@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createBuyer } from '@/lib/actions';
 import {
   cityEnum,
@@ -222,12 +223,12 @@ export default function NewBuyerPage() {
           >
             Create Lead
           </button>
-          <a
+          <Link
             href="/buyers"
             className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
           >
             Cancel
-          </a>
+          </Link>
         </div>
       </form>
     </div>

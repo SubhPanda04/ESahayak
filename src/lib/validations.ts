@@ -6,7 +6,6 @@ import {
   purposeEnum,
   timelineEnum,
   sourceEnum,
-  statusEnum,
 } from './db/schema';
 
 const phoneRegex = /^\d{10,15}$/;

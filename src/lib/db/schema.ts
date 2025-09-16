@@ -37,5 +37,5 @@ export const buyerHistory = sqliteTable('buyer_history', {
   buyerId: text('buyer_id').references(() => buyers.id).notNull(),
   changedBy: text('changed_by').notNull(),
   changedAt: integer('changed_at', { mode: 'timestamp' }).notNull().default(sql`(unixepoch())`),
-  diff: text('diff', { mode: 'json' }).$type<Record<string, any>>().notNull(),
+  diff: text('diff', { mode: 'json' }).$type<Record<string, unknown>>().notNull(),
 });

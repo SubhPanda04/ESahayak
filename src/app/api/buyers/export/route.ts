@@ -100,7 +100,7 @@ export async function GET(request: NextRequest) {
     ];
 
     const csvRows = csvData.map(row =>
-      csvHeaders.map(header => `"${(row as any)[header]}"`).join(',')
+      csvHeaders.map(header => `"${(row as Record<string, unknown>)[header]}"`).join(',')
     );
 
     const csvContent = [csvHeaders.join(','), ...csvRows].join('\n');
