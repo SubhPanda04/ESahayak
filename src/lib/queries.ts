@@ -74,3 +74,27 @@ export async function getBuyers(filters: BuyersFilters = {}, userId: string) {
     currentPage: page,
   };
 }
+
+export async function getBuyerWithHistory(buyerId: string, userId: string) {
+  const buyer = await db
+    .select()
+    .from(buyers)
+    .where(and(eq(buyers.id, buyerId), eq(buyers.ownerId, userId)))
+    .limit(1);
+
+  if (!buyer.length) {
+    return null;
+  }
+
+  const history = await db
+    .select()
+    .from(buyerHistory)
+    .where(eq(buyerHistory.buyerId, buyerId))
+    .orderBy(desc(buyerHistory.changedAt))
+    .limit(5);
+
+  return {
+    buyer: buyer[0],
+    history,
+  };
+}
