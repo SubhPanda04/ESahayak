@@ -37,12 +37,26 @@ export default async function BuyersPage({ searchParams }: PageProps) {
     <div className="container mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Buyer Leads</h1>
-        <Link
-          href="/buyers/new"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          Create New Lead
-        </Link>
+        <div className="space-x-4">
+          <Link
+            href="/buyers/new"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Create New Lead
+          </Link>
+          <Link
+            href="/buyers/import"
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          >
+            Import CSV
+          </Link>
+          <a
+            href={`/api/buyers/export?${searchParams.toString()}`}
+            className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+          >
+            Export CSV
+          </a>
+        </div>
       </div>
 
       {/* Filters */}
