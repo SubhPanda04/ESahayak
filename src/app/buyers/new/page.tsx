@@ -15,7 +15,7 @@ export default function NewBuyerPage() {
 
       <form action={createBuyer} className="space-y-4">
         <div>
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="fullName" className="block text-sm font-medium text-white">
             Full Name *
           </label>
           <input
@@ -28,7 +28,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-white">
             Email
           </label>
           <input
@@ -40,7 +40,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="phone" className="block text-sm font-medium text-white">
             Phone *
           </label>
           <input
@@ -53,7 +53,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="city" className="block text-sm font-medium text-white">
             City *
           </label>
           <select
@@ -72,7 +72,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="propertyType" className="block text-sm font-medium text-white">
             Property Type *
           </label>
           <select
@@ -91,7 +91,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="bhk" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="bhk" className="block text-sm font-medium text-white">
             BHK
           </label>
           <select
@@ -109,7 +109,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="purpose" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="purpose" className="block text-sm font-medium text-white">
             Purpose *
           </label>
           <select
@@ -129,7 +129,7 @@ export default function NewBuyerPage() {
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label htmlFor="budgetMin" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="budgetMin" className="block text-sm font-medium text-white">
               Budget Min (INR)
             </label>
             <input
@@ -140,7 +140,7 @@ export default function NewBuyerPage() {
             />
           </div>
           <div>
-            <label htmlFor="budgetMax" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="budgetMax" className="block text-sm font-medium text-white">
               Budget Max (INR)
             </label>
             <input
@@ -153,7 +153,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="timeline" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="timeline" className="block text-sm font-medium text-white">
             Timeline *
           </label>
           <select
@@ -172,7 +172,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="source" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="source" className="block text-sm font-medium text-white">
             Source *
           </label>
           <select
@@ -191,7 +191,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="notes" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="notes" className="block text-sm font-medium text-white">
             Notes
           </label>
           <textarea
@@ -203,7 +203,7 @@ export default function NewBuyerPage() {
         </div>
 
         <div>
-          <label htmlFor="tags" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="tags" className="block text-sm font-medium text-white">
             Tags (comma separated)
           </label>
           <input

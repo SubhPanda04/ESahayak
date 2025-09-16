@@ -38,7 +38,7 @@ export default function Filters({ currentFilters }: FiltersProps) {
       <select
         value={currentFilters.city || ''}
         onChange={(e) => updateFilter('city', e.target.value)}
-        className="border border-gray-300 rounded p-2"
+        className="border border-gray-300 rounded p-2 text-black"
       >
         <option value="">All Cities</option>
         {cityEnum.map((city) => (
@@ -51,7 +51,7 @@ export default function Filters({ currentFilters }: FiltersProps) {
       <select
         value={currentFilters.propertyType || ''}
         onChange={(e) => updateFilter('propertyType', e.target.value)}
-        className="border border-gray-300 rounded p-2"
+        className="border border-gray-300 rounded p-2 text-black"
       >
         <option value="">All Property Types</option>
         {propertyTypeEnum.map((type) => (
@@ -64,7 +64,7 @@ export default function Filters({ currentFilters }: FiltersProps) {
       <select
         value={currentFilters.status || ''}
         onChange={(e) => updateFilter('status', e.target.value)}
-        className="border border-gray-300 rounded p-2"
+        className="border border-gray-300 rounded p-2 text-black"
       >
         <option value="">All Statuses</option>
         {statusEnum.map((status) => (
@@ -77,7 +77,7 @@ export default function Filters({ currentFilters }: FiltersProps) {
       <select
         value={currentFilters.timeline || ''}
         onChange={(e) => updateFilter('timeline', e.target.value)}
-        className="border border-gray-300 rounded p-2"
+        className="border border-gray-300 rounded p-2 text-black"
       >
         <option value="">All Timelines</option>
         {timelineEnum.map((timeline) => (
@@ -101,7 +101,7 @@ export default function Filters({ currentFilters }: FiltersProps) {
           name="search"
           defaultValue={currentFilters.search || ''}
           placeholder="Search by name, phone, email"
-          className="border border-gray-300 rounded p-2 flex-1"
+          className="border border-gray-300 rounded p-2 flex-1 text-black"
         />
         <button
           type="submit"
