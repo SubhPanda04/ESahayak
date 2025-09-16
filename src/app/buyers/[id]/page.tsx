@@ -4,12 +4,13 @@ import { requireAuth } from '@/lib/auth';
 import { getBuyerWithHistory } from '@/lib/queries';
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function BuyerDetailPage({ params }: PageProps) {
+  const resolvedParams = await params;
   const userId = await requireAuth();
-  const data = await getBuyerWithHistory(params.id, userId);
+  const data = await getBuyerWithHistory(resolvedParams.id, userId);
 
   if (!data) {
     notFound();
