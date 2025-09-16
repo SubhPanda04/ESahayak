@@ -51,7 +51,7 @@ export async function getBuyers(filters: BuyersFilters = {}, userId: string) {
           ilike(buyers.phone, `%${search}%`),
           ilike(buyers.email, `%${search}%`)
         )
-      )
+      )!
     );
   }
 

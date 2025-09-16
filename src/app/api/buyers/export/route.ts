@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
             ilike(buyers.phone, `%${search}%`),
             ilike(buyers.email, `%${search}%`)
           )
-        )
+        )!
       );
     }
 
