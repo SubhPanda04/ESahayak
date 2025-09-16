@@ -13,12 +13,13 @@ import {
 } from '@/lib/db/schema';
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditBuyerPage({ params }: PageProps) {
+  const resolvedParams = await params;
   const userId = await requireAuth();
-  const data = await getBuyerWithHistory(params.id, userId);
+  const data = await getBuyerWithHistory(resolvedParams.id, userId);
 
   if (!data) {
     notFound();
@@ -31,7 +32,7 @@ export default async function EditBuyerPage({ params }: PageProps) {
       <h1 className="text-2xl font-bold mb-6">Edit Buyer Lead</h1>
 
       <form action={updateBuyer.bind(null, buyer.id)} className="space-y-4">
-        <input type="hidden" name="updatedAt" value={buyer.updatedAt} />
+        <input type="hidden" name="updatedAt" value={buyer.updatedAt ? Math.floor(buyer.updatedAt.getTime() / 1000) : ''} />
 
         <div>
           <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
