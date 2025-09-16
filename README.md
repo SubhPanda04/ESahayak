@@ -2,6 +2,13 @@
 
 A modern, full-stack web application for managing buyer leads built with Next.js 15, TypeScript, Drizzle ORM, and SQLite.
 
+## Screenshots
+![Alt text](https://github.com/user-attachments/assets/cb2163d9-bb58-4fa9-86f9-28ceacac8b65)
+![Alt text](https://github.com/user-attachments/assets/6baadd97-a440-4aa1-a35f-b59852e4db4c)
+![Alt text](https://github.com/user-attachments/assets/cf6cb2af-37d3-4561-9156-405a4f56b92b)
+![Alt text](https://github.com/user-attachments/assets/13dadc29-6747-4f39-8362-b26bdadbfe41)
+
+
 ## 🚀 Features
 
 - ✅ **Lead Management**: Create, view, edit, and manage buyer leads
