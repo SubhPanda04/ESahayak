@@ -25,7 +25,7 @@ export const buyerFormSchema = z
     timeline: z.enum(timelineEnum),
     source: z.enum(sourceEnum),
     notes: z.string().max(1000, 'Notes must be less than 1000 characters').optional(),
-    tags: z.string().optional(),
+    tags: z.array(z.string()).optional(),
   })
   .refine(
     (data) => {
@@ -52,4 +52,9 @@ export const buyerFormSchema = z
     }
   );
 
+export const buyerUpdateSchema = buyerFormSchema.safeExtend({
+  updatedAt: z.number().int(),
+});
+
 export type BuyerFormData = z.infer<typeof buyerFormSchema>;
+export type BuyerUpdateData = z.infer<typeof buyerUpdateSchema>;
