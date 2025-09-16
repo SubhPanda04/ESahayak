@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db/db';
-import { buyers } from '@/lib/db/schema';
+import { buyers, cityEnum, propertyTypeEnum, statusEnum, timelineEnum } from '@/lib/db/schema';
 import { and, eq, ilike, or } from 'drizzle-orm';
 import { cookies } from 'next/headers';
 
@@ -14,10 +14,10 @@ export async function GET(request: NextRequest) {
     }
 
     const { searchParams } = new URL(request.url);
-    const city = searchParams.get('city') || undefined;
-    const propertyType = searchParams.get('propertyType') || undefined;
-    const status = searchParams.get('status') || undefined;
-    const timeline = searchParams.get('timeline') || undefined;
+    const city = searchParams.get('city') as typeof cityEnum[number] | undefined;
+    const propertyType = searchParams.get('propertyType') as typeof propertyTypeEnum[number] | undefined;
+    const status = searchParams.get('status') as typeof statusEnum[number] | undefined;
+    const timeline = searchParams.get('timeline') as typeof timelineEnum[number] | undefined;
     const search = searchParams.get('search') || undefined;
 
     const whereConditions = [eq(buyers.ownerId, userId)];
