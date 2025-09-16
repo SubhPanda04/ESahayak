@@ -38,8 +38,10 @@ export async function GET(request: NextRequest) {
       whereConditions.push(
         or(
           ilike(buyers.fullName, `%${search}%`),
-          ilike(buyers.phone, `%${search}%`),
-          ilike(buyers.email, `%${search}%`)
+          or(
+            ilike(buyers.phone, `%${search}%`),
+            ilike(buyers.email, `%${search}%`)
+          )
         )
       );
     }

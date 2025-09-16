@@ -47,8 +47,10 @@ export async function getBuyers(filters: BuyersFilters = {}, userId: string) {
     whereConditions.push(
       or(
         ilike(buyers.fullName, `%${search}%`),
-        ilike(buyers.phone, `%${search}%`),
-        ilike(buyers.email, `%${search}%`)
+        or(
+          ilike(buyers.phone, `%${search}%`),
+          ilike(buyers.email, `%${search}%`)
+        )
       )
     );
   }
